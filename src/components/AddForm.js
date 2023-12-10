@@ -10,15 +10,13 @@ import {
 
 const AddForm = () => {
   return (
-    <Card className="p-10 max-w-2xl mx-auto"
+    <Card className="py-5 px-10 max-w-xl mt-7 border-[1px] border-gray-700 mx-auto"
      color="transparent" shadow={true}>
       <Typography variant="h4" color="blue-gray">
-        Sign Up
+        Add Your Daily Blogs
       </Typography>
-      <Typography color="gray" className="mt-1 font-normal">
-        Nice to meet you! Enter your details to register.
-      </Typography>
-      <form className="mt-8 mb-2">
+      
+      <form className="mt-4 mb-2">
         <div className="mb-1 flex flex-col gap-6">
         
           <Input
