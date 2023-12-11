@@ -10,11 +10,18 @@ import {
   Option,
 } from "@material-tailwind/react";
 import { useFormik } from "formik";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router";
 import * as Yup from 'yup';
+import { addBlogs } from "../features/blogSlice";
+import { nanoid } from "@reduxjs/toolkit";
 
 
 
 const AddForm = () => {
+
+  const dispatch = useDispatch();
+  const nav = useNavigate();
 
   const valSchema = Yup.object({
     title: Yup.string().required('This is required'),
@@ -40,9 +47,19 @@ const formik = useFormik({
     imageUrl: ''
   },
   onSubmit:(val) => {
-    console.log(val);
+    const newData = {
+      title: val.title,
+      detail: val.detail,
+      place: val.place,
+      country: val.country,
+      times: val.times,
+      imageUrl: val.imageUrl,
+      id: nanoid()
+    };
+    dispatch(addBlogs(newData));
+    nav(-1);
   },
-  validationSchema: valSchema
+  // validationSchema: valSchema
 });
 
 const radioData = [
@@ -161,7 +178,9 @@ const checkData = [
             {formik.errors.imageFile && formik.touched.imageFile &&
             <h1 className="text-red-400 mt-2">{formik.errors.imageFile}</h1>}
 
-             {formik.values.imageUrl && !formik.errors.imageFile &&   <div className="pt-5">
+{/* && !formik.errors.imageFile ..yo tala && paxi add garnu*/}
+
+             {formik.values.imageUrl  &&   <div className="pt-5">
               <img className="h-[200px]" src={formik.values.imageUrl} alt="" />
              </div> }
 
@@ -172,7 +191,7 @@ const checkData = [
         </div>
 
         <Button type="submit" className="mt-6" fullWidth>
-          sign up
+          SUBMIT
         </Button>
 
       </form>
