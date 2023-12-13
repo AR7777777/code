@@ -5,6 +5,7 @@ import NotFound from './pages/NotFound'
 import About from './pages/About'
 import HomePage from './pages/HomePage'
 import AddForm from './components/AddForm'
+import UpdateForm from './components/UpdateForm'
 
 const App = () => {
 
@@ -16,6 +17,7 @@ const App = () => {
 
           <Route index element={<HomePage />} />
           <Route path='add-daily' element={<AddForm />} />
+          <Route path='update' element={<UpdateForm />} />
           <Route path='About' element={<About />} />
           <Route path='*' element={<NotFound />} />
         </Route>

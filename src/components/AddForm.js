@@ -25,7 +25,7 @@ const AddForm = () => {
 
   const valSchema = Yup.object({
     title: Yup.string().required('This is required'),
-    detail: Yup.string().required(),
+    detail: Yup.string().min(120).required(),
     place: Yup.string().required(),
     country: Yup.string().required(),
     times: Yup.array().min(1, 'Atleast one item should be chosen').required(),
@@ -59,7 +59,7 @@ const formik = useFormik({
     dispatch(addBlogs(newData));
     nav(-1);
   },
-  // validationSchema: valSchema
+   validationSchema: valSchema
 });
 
 const radioData = [
