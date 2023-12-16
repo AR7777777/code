@@ -4,8 +4,7 @@ import RootLayOut from './components/RootLayOut'
 import NotFound from './pages/NotFound'
 import About from './pages/About'
 import HomePage from './pages/HomePage'
-import AddForm from './components/AddForm'
-import UpdateForm from './components/UpdateForm'
+
 
 const App = () => {
 
@@ -14,10 +13,7 @@ const App = () => {
     <>
       <Routes>
         <Route path='/' element={<RootLayOut />} >
-
           <Route index element={<HomePage />} />
-          <Route path='add-daily' element={<AddForm />} />
-          <Route path='update' element={<UpdateForm />} />
           <Route path='About' element={<About />} />
           <Route path='*' element={<NotFound />} />
         </Route>
