@@ -10,7 +10,6 @@ export const movieApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: baseUrl }),
   endpoints: (builder) => ({
 
-
     getMovieByCategory: builder.query({
       query: (query) => ({
         url: `/movie/${query}`,
@@ -21,11 +20,8 @@ export const movieApi = createApi({
     }),
 
 
-
-
-
-
-
-
   })
 });
+
+
+export const {useGetMovieByCategoryQuery} = movieApi;

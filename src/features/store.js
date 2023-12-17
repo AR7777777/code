@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import blogReducer from '../features/blogSlice'
+import { movieApi } from "./movieApi";
+
 
 
 
@@ -7,6 +8,7 @@ import blogReducer from '../features/blogSlice'
 
 export const store = configureStore({
   reducer: {
-    blog: blogReducer
-  }
+  [movieApi.reducerPath]: movieApi.reducer
+  },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat([movieApi.middleware]),
 });
